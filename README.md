@@ -34,5 +34,3 @@ git clone https://github.com/Vozodo/ShareX-custom-URL-shorter
 
 ### Test
 At the bottom left you can select the uploader you want to create in the URL shortener. Click on Test. A new window will open and if everything worked, it will return a shortened link.
-
-Translated with www.DeepL.com/Translator (free version)
