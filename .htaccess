@@ -1,0 +1,19 @@
+# URL Rewrite
+RewriteEngine On
+RewriteRule ^([^/]*)/$ /?r=$1 [L]
+
+# Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+# Prevent directory listings
+Options All -Indexes
+
+
+# Prevent to open sqlite files
+<FilesMatch "\.(?:sqlite|db|sqlite3|s3db)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
