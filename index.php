@@ -4,10 +4,6 @@ $secret_key = "changeme"; //Set this as your secret key, to prevent others uploa
 $domain_url = 'http://phpshorter.test'; //Add an S at the end of HTTP if you have a SSL certificate.
 $lengthofstring = 7; //Length of the file name
 
-
-
-
-//DB
 $databasePath = 'phpshorter.sqlite';
 
 if (!file_exists($databasePath)) {
@@ -18,9 +14,6 @@ if (!file_exists($databasePath)) {
 $db = new PDO('sqlite:' . $databasePath);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
-
-//Redirect User if Shorten URL
 if (isset($_GET['r'])) {
     $slug = filter_input(INPUT_GET, 'r');
 
@@ -42,10 +35,6 @@ if (isset($_GET['r'])) {
     }
 }
 
-
-
-//TODO
-//Generate short URL
 if (isset($_POST['secret'])) {
     if ($_POST['secret'] === $secret_key) {
         $shortUrl = getShortUrl(filter_input(INPUT_POST, 'url'));
@@ -61,14 +50,6 @@ if (isset($_POST['secret'])) {
     echo "No post data received";
 }
 
-
-
-
-
-
-
-
-// Functions
 function getShortUrl($url) {
     global $db;
     global $lengthofstring;
@@ -91,9 +72,6 @@ function getShortUrl($url) {
     }
 }
 
-
-
-//DONE
 function generateUniqueID($length) {
     global $db;
 
